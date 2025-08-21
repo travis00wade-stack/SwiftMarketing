@@ -23,10 +23,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-              <Sparkles className="w-6 h-6 text-white" />
-            </div>
+          <Link to="/" className="flex items-center space-x-3 group">
+            <img 
+              src="https://www.swiftmarketing.co.za/wp-content/uploads/2020/09/Swift-Marketing-Logo-2020-Square.png" 
+              alt="Swift Marketing Logo" 
+              className="w-12 h-12 rounded-lg"
+            />
             <div>
               <div className="text-xl font-bold text-gray-900">Swift Marketing</div>
               <div className="text-xs text-blue-600 font-medium">Digital Dreams to Life</div>
