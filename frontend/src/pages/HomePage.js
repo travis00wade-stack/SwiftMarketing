@@ -132,8 +132,23 @@ const HomePage = () => {
           <div className="grid lg:grid-cols-3 gap-8">
             {featuredServices.map((service, index) => {
               const Icon = iconMap[service.icon];
+              
+              // Background images for each service
+              const backgroundImages = {
+                1: 'https://images.pexels.com/photos/15863044/pexels-photo-15863044.jpeg?auto=compress&cs=tinysrgb&w=800',
+                2: 'https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                3: 'https://images.unsplash.com/photo-1531498860502-7c67cf02f657?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+              };
+              
               return (
-                <Card key={service.id} className={`relative overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${service.trending ? 'ring-2 ring-blue-500' : ''}`}>
+                <Card key={service.id} className={`relative overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${service.trending ? 'ring-2 ring-blue-500' : ''}`}
+                      style={{
+                        backgroundImage: `linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(79, 70, 229, 0.8)), url('${backgroundImages[service.id]}')`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        minHeight: '400px',
+                        color: 'white'
+                      }}>
                   {service.trending && (
                     <div className="absolute top-4 right-4">
                       <Badge className="bg-gradient-to-r from-orange-500 to-pink-500 text-white">
@@ -147,29 +162,35 @@ const HomePage = () => {
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                         <Award className="w-3 h-3 mr-1" />
-                        Partner
+                        {service.partner} Partner
                       </Badge>
                     </div>
                   )}
 
                   <CardHeader className="pb-4">
-                    <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                       <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900 mb-2">
+                    <CardTitle className="text-2xl font-bold text-white mb-2">
                       {service.title}
                     </CardTitle>
                   </CardHeader>
                   
-                  <CardContent>
-                    <p className="text-gray-600 mb-4">{service.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {service.features.map((feature, idx) => (
-                        <Badge key={idx} variant="secondary" className="text-xs">
-                          {feature}
-                        </Badge>
-                      ))}
+                  <CardContent className="flex-1 flex flex-col justify-between">
+                    <div>
+                      <p className="text-white/90 mb-4">{service.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {service.features.map((feature, idx) => (
+                          <Badge key={idx} variant="secondary" className="text-xs bg-white/20 text-white border-white/30">
+                            {feature}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
+                    <Button className="w-full bg-white text-blue-600 hover:bg-gray-100 mt-4">
+                      Learn More
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </Button>
                   </CardContent>
                 </Card>
               );
