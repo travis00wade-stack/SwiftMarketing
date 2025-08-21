@@ -56,11 +56,29 @@ add_action('after_setup_theme', 'swift_marketing_theme_setup');
 
 // Enqueue styles and scripts
 function swift_marketing_enqueue_scripts() {
-    // Tailwind CSS from CDN
+    // Tailwind CSS from CDN - loaded first for proper cascading
     wp_enqueue_style('tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css', array(), '3.4.0');
     
-    // Main stylesheet
+    // Main stylesheet - depends on Tailwind for proper override capability
     wp_enqueue_style('swift-marketing-style', get_stylesheet_uri(), array('tailwind-css'), SWIFT_MARKETING_VERSION);
+    
+    // Add critical inline CSS for immediate rendering
+    $critical_css = "
+        .page-bg { 
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #e0e7ff 100%); 
+            min-height: 100vh; 
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(224, 242, 254, 0.95), rgba(224, 231, 255, 0.95)), url('https://images.unsplash.com/photo-1617012811506-344ff32b7055?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        @media (max-width: 768px) {
+            .hero-bg { background-attachment: scroll; }
+        }
+    ";
+    wp_add_inline_style('swift-marketing-style', $critical_css);
     
     // Enqueue custom JavaScript
     wp_enqueue_script('swift-marketing-script', get_template_directory_uri() . '/js/main.js', array('jquery'), SWIFT_MARKETING_VERSION, true);
