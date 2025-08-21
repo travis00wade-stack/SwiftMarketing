@@ -24,71 +24,20 @@
     <!-- Preload key resources -->
     <link rel="preload" href="https://www.swiftmarketing.co.za/wp-content/uploads/2020/09/Swift-Marketing-Logo-2020-Square.png" as="image">
     
-    <!-- Inline Critical CSS for immediate rendering -->
+    <!-- Essential inline CSS for immediate rendering only -->
     <style>
-        /* Critical CSS for immediate loading */
-        .page-bg { 
-            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #e0e7ff 100%); 
-            min-height: 100vh; 
-        }
-        .hero-bg {
-            background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(224, 242, 254, 0.95), rgba(224, 231, 255, 0.95)), url('https://images.unsplash.com/photo-1617012811506-344ff32b7055?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .service-card {
-            position: relative;
-            overflow: hidden;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            min-height: 400px;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(79, 70, 229, 0.8));
-            z-index: 1;
-        }
-        .card-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 2rem;
-        }
-        .container {
-            width: 100%; max-width: 1200px; 
-            margin-left: auto; margin-right: auto; 
-            padding-left: 1rem; padding-right: 1rem;
-        }
-        .text-hero { 
-            font-size: clamp(2.5rem, 5vw, 4.5rem); 
-            line-height: 1.1; font-weight: 900; 
-        }
-        .text-section-title { 
-            font-size: clamp(2rem, 4vw, 3rem); 
-            line-height: 1.2; font-weight: 800; 
-        }
+        /* Only essential layout CSS for immediate rendering */
+        body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+        .container { width: 100%; max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
         .btn-gradient {
             background: linear-gradient(to right, #2563eb, #4f46e5);
-            color: white; padding: 0.75rem 2rem; 
-            border-radius: 0.5rem; text-decoration: none;
-            display: inline-flex; align-items: center;
+            color: white; padding: 0.75rem 2rem; border-radius: 0.5rem; 
+            text-decoration: none; display: inline-flex; align-items: center;
             transition: all 0.3s ease; border: none; cursor: pointer;
         }
         .btn-gradient:hover {
             background: linear-gradient(to right, #1d4ed8, #4338ca);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            color: white; text-decoration: none;
+            transform: translateY(-2px); color: white; text-decoration: none;
         }
     </style>
     
