@@ -358,6 +358,15 @@ function swift_marketing_security_headers() {
 }
 add_action('send_headers', 'swift_marketing_security_headers');
 
+// Theme activation - set homepage
+function swift_marketing_after_setup_theme() {
+    // Set homepage to show latest posts (blog style) or static page
+    if (get_option('show_on_front') !== 'posts') {
+        update_option('show_on_front', 'posts');
+    }
+}
+add_action('after_setup_theme', 'swift_marketing_after_setup_theme');
+
 // GitHub deployment helper functions
 function swift_marketing_flush_rewrite_rules() {
     swift_marketing_custom_post_types();
