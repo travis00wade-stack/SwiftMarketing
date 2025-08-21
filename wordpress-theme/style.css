@@ -51,14 +51,75 @@ body {
 }
 
 /* WordPress Core Compatibility */
-.aligncenter { text-align: center; }
-.alignleft { float: left; margin-right: 1rem; }
-.alignright { float: right; margin-left: 1rem; }
-.wp-caption { max-width: 100%; }
-.wp-caption-text { font-size: 0.875rem; color: #666; }
-.sticky { /* WordPress sticky post styling */ }
-.gallery-caption { font-size: 0.875rem; }
-.bypostauthor { /* Post author highlighting */ }
+.aligncenter { 
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.alignleft { 
+    float: left; 
+    margin: 0 1rem 1rem 0; 
+}
+.alignright { 
+    float: right; 
+    margin: 0 0 1rem 1rem; 
+}
+.wp-caption { 
+    max-width: 100%; 
+}
+.wp-caption-text { 
+    font-size: 0.875rem; 
+    color: #666; 
+    text-align: center;
+    padding: 0.5rem 0;
+}
+.sticky { 
+    position: relative;
+}
+.gallery-caption { 
+    font-size: 0.875rem; 
+}
+.bypostauthor { 
+    background: rgba(37, 99, 235, 0.05);
+    border-left: 3px solid #2563eb;
+    padding-left: 1rem;
+}
+
+/* WordPress Admin Bar Compatibility */
+.admin-bar .site-header {
+    top: 32px;
+}
+
+@media screen and (max-width: 782px) {
+    .admin-bar .site-header {
+        top: 46px;
+    }
+}
+
+/* Container Classes */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+    .container {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
 
 /* Custom Gradient Buttons */
 .btn-gradient {
