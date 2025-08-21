@@ -56,8 +56,11 @@ add_action('after_setup_theme', 'swift_marketing_theme_setup');
 
 // Enqueue styles and scripts
 function swift_marketing_enqueue_scripts() {
+    // Tailwind CSS from CDN
+    wp_enqueue_style('tailwind-css', 'https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css', array(), '3.4.0');
+    
     // Main stylesheet
-    wp_enqueue_style('swift-marketing-style', get_stylesheet_uri(), array(), SWIFT_MARKETING_VERSION);
+    wp_enqueue_style('swift-marketing-style', get_stylesheet_uri(), array('tailwind-css'), SWIFT_MARKETING_VERSION);
     
     // Enqueue custom JavaScript
     wp_enqueue_script('swift-marketing-script', get_template_directory_uri() . '/js/main.js', array('jquery'), SWIFT_MARKETING_VERSION, true);
