@@ -1,0 +1,42 @@
+{
+  "name": "swift-marketing-theme",
+  "version": "1.2.0",
+  "description": "Professional WordPress theme for Swift Marketing - SEO optimized with Elementor compatibility",
+  "main": "index.php",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/swift-marketing-theme.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "marketing",
+    "agency", 
+    "seo",
+    "clickup",
+    "elementor",
+    "responsive",
+    "south-africa"
+  ],
+  "author": "Swift Marketing",
+  "license": "GPL-2.0-or-later",
+  "bugs": {
+    "url": "https://github.com/your-username/swift-marketing-theme/issues"
+  },
+  "homepage": "https://github.com/your-username/swift-marketing-theme#readme",
+  "wordpress": {
+    "requires": "5.0",
+    "tested": "6.4",
+    "requires_php": "7.4"
+  },
+  "deployment": {
+    "target": "wp-content/themes/swift-marketing-theme",
+    "exclude": [
+      ".git",
+      ".gitignore",
+      "package.json",
+      "README.md",
+      "node_modules"
+    ]
+  }
+}
