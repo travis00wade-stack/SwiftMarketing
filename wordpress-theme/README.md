@@ -1,6 +1,25 @@
-# Swift Marketing Pro - WordPress Theme
+# Swift Marketing Pro WordPress Theme v1.2.0
 
-A modern, SEO-optimized marketing agency WordPress theme featuring 2025 trending services, ClickUp partnership integration, and AI-driven solutions.
+🚀 **Updated for GitHub Deployment with Elementor Support!**
+
+## 🎉 **NEW FEATURES & IMPROVEMENTS**
+
+### ✅ **Your Requested Changes:**
+- **Your Logo**: Added actual Swift Marketing logo from your website
+- **Removed Trending Button**: Cleaned up hero section 
+- **Hero Background**: Added professional background image
+- **Service Images**: All 6 services now have relevant background images
+- **Elementor Compatible**: Full compatibility with Elementor page builder
+- **GitHub Ready**: Optimized for "Deployer for Git" plugin
+
+### 🖼️ **Professional Images Added:**
+- **AI-Driven Digital Strategy**: AI/tech interface background
+- **ClickUp Project Management**: Project planning board background  
+- **Custom Software Development**: Developer coding environment
+- **eCommerce & Online Stores**: Online store management interface
+- **Interactive Design & UX**: Website design wireframes
+- **Video & Content Production**: Professional video equipment setup
+- **Hero Background**: Clean, professional workspace image
 
 ## Theme Features
 
@@ -13,7 +32,8 @@ A modern, SEO-optimized marketing agency WordPress theme featuring 2025 trending
 ✅ **AI-Driven Content**: Highlights trending 2025 AI and digital marketing services  
 ✅ **Contact Forms**: Working contact forms with email functionality  
 ✅ **Custom Post Types**: Services, Case Studies, and Testimonials post types  
-✅ **Customizer Integration**: Easy customization through WordPress Customizer  
+✅ **Elementor Compatible**: Full compatibility with Elementor page builder
+✅ **GitHub Deployment**: Optimized for Git-based deployment workflows  
 
 ## Included Files
 
