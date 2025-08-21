@@ -97,29 +97,53 @@ function swift_marketing_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'swift_marketing_enqueue_scripts');
 
-// Elementor compatibility
+// Elementor compatibility - Enhanced
 function swift_marketing_elementor_support() {
-    // Remove Elementor's default fonts
-    add_filter('elementor/fonts/groups', '__return_empty_array');
-    
     // Add Elementor theme locations
     if (class_exists('\Elementor\Theme_Conditions_Manager')) {
         add_action('elementor/theme/register_locations', function($locations_manager) {
             $locations_manager->register_location('header');
             $locations_manager->register_location('footer');
+            $locations_manager->register_location('single');
+            $locations_manager->register_location('archive');
         });
     }
+    
+    // Ensure Elementor CSS doesn't conflict with theme CSS
+    add_filter('elementor/frontend/print_google_fonts', '__return_false');
 }
 add_action('elementor/init', 'swift_marketing_elementor_support');
 
-// Elementor Pro theme builder support
+// Better Elementor Pro theme builder support  
 function swift_marketing_register_elementor_locations($elementor_theme_manager) {
     $elementor_theme_manager->register_location('header');
     $elementor_theme_manager->register_location('footer');
     $elementor_theme_manager->register_location('single');
     $elementor_theme_manager->register_location('archive');
+    $elementor_theme_manager->register_location('404');
 }
 add_action('elementor/theme/register_locations', 'swift_marketing_register_elementor_locations');
+
+// Add Elementor custom CSS support
+function swift_marketing_elementor_css() {
+    if (class_exists('\Elementor\Plugin')) {
+        // Ensure Elementor styles load properly
+        wp_enqueue_style('elementor-frontend');
+        
+        // Add theme-specific Elementor CSS
+        $elementor_css = "
+            .elementor-widget-container { box-sizing: border-box; }
+            .elementor-section .container { max-width: 1200px; margin: 0 auto; }
+            .elementor-widget-heading h1, .elementor-widget-heading h2, 
+            .elementor-widget-heading h3, .elementor-widget-heading h4 {
+                color: inherit;
+                font-family: inherit;
+            }
+        ";
+        wp_add_inline_style('swift-marketing-style', $elementor_css);
+    }
+}
+add_action('wp_enqueue_scripts', 'swift_marketing_elementor_css', 15);
 
 // Custom post types
 function swift_marketing_custom_post_types() {
