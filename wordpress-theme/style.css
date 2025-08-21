@@ -1,28 +1,65 @@
 /*
 Theme Name: Swift Marketing Pro
-Description: Modern, SEO-optimized marketing agency WordPress theme based on Swift Marketing with 2025 trending services, ClickUp partnership, and AI-driven solutions.
+Description: Modern, SEO-optimized marketing agency WordPress theme based on Swift Marketing with 2025 trending services, ClickUp partnership, and AI-driven solutions. Compatible with Elementor page builder.
 Author: Swift Marketing
-Version: 1.0.0
+Version: 1.2.0
 Text Domain: swift-marketing
-Tags: business, marketing, agency, responsive, modern, seo, clickup, ai-driven
+Tags: business, marketing, agency, responsive, modern, seo, clickup, ai-driven, elementor
+Template: swift-marketing
+Requires at least: 5.0
+Tested up to: 6.4
+Requires PHP: 7.4
+License: GPL v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /* Import Tailwind CSS */
 @import url('https://cdn.jsdelivr.net/npm/tailwindcss@3.4.0/dist/tailwind.min.css');
+
+/* Elementor Compatibility */
+.elementor-widget-container * {
+    box-sizing: border-box;
+}
+
+.elementor-element {
+    --widgets-spacing: 20px;
+}
+
+.elementor-widget:not(.elementor-widget-empty) {
+    margin-bottom: var(--widgets-spacing);
+}
+
+/* Override Elementor defaults when needed */
+.elementor-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
 /* Custom CSS Variables */
 :root {
   --primary-blue: #2563eb;
   --primary-indigo: #4f46e5;
   --gradient-primary: linear-gradient(to right, var(--primary-blue), var(--primary-indigo));
+  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 }
 
 /* Base Styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: var(--font-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
 }
+
+/* WordPress Core Compatibility */
+.aligncenter { text-align: center; }
+.alignleft { float: left; margin-right: 1rem; }
+.alignright { float: right; margin-left: 1rem; }
+.wp-caption { max-width: 100%; }
+.wp-caption-text { font-size: 0.875rem; color: #666; }
+.sticky { /* WordPress sticky post styling */ }
+.gallery-caption { font-size: 0.875rem; }
+.bypostauthor { /* Post author highlighting */ }
 
 /* Custom Gradient Buttons */
 .btn-gradient {
@@ -35,6 +72,7 @@ body {
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .btn-gradient:hover {
@@ -45,6 +83,11 @@ body {
   text-decoration: none;
 }
 
+.btn-gradient:focus {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
 /* Card Styles */
 .card {
   background: white;
@@ -52,11 +95,43 @@ body {
   padding: 2rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  border: 1px solid #f3f4f6;
 }
 
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Service Card with Background Images */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 400px;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(79, 70, 229, 0.8));
+  z-index: 1;
+}
+
+.service-card .card-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Badge Styles */
@@ -67,6 +142,7 @@ body {
   border-radius: 2rem;
   font-size: 0.875rem;
   font-weight: 600;
+  line-height: 1;
 }
 
 .badge-primary {
@@ -104,47 +180,96 @@ body {
   background-clip: text;
 }
 
+/* Hero Background */
+.hero-bg {
+  background: linear-gradient(135deg, rgba(248, 250, 252, 0.95), rgba(224, 242, 254, 0.95), rgba(224, 231, 255, 0.95)), url('https://images.unsplash.com/photo-1617012811506-344ff32b7055?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@media (max-width: 768px) {
+  .hero-bg {
+    background-attachment: scroll;
+  }
+}
+
 /* Form Styles */
-.form-input {
+.form-input, .form-textarea {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #d1d5db;
   border-radius: 0.5rem;
   font-size: 1rem;
   transition: border-color 0.3s ease;
+  background: white;
 }
 
-.form-input:focus {
+.form-input:focus, .form-textarea:focus {
   outline: none;
   border-color: var(--primary-blue);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .form-textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid #d1d5db;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
   resize: vertical;
   min-height: 120px;
 }
 
-.form-textarea:focus {
-  outline: none;
-  border-color: var(--primary-blue);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-}
-
 /* Header Styles */
 .site-header {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #e5e7eb;
   position: sticky;
   top: 0;
-  z-index: 50;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styles */
+.site-logo {
+  max-height: 50px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+  transform: scale(1.05);
+}
+
+/* Navigation Styles */
+.nav-link {
+  position: relative;
+  color: #374151;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+.nav-link.active {
+  color: var(--primary-blue);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-primary);
+  border-radius: 1px;
 }
 
 /* Footer Styles */
@@ -153,25 +278,20 @@ body {
   color: white;
 }
 
+.site-footer a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.site-footer a:hover {
+  color: #60a5fa;
+}
+
 /* Page Background */
 .page-bg {
   background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 50%, #e0e7ff 100%);
   min-height: 100vh;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .hero-title {
-    font-size: 2.5rem !important;
-  }
-  
-  .section-title {
-    font-size: 2rem !important;
-  }
 }
 
 /* Animation Classes */
@@ -184,25 +304,124 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
 .hover-scale:hover {
   transform: scale(1.05);
 }
 
-/* WordPress Specific Overrides */
-.wp-block-group {
-  margin: 0;
+.slide-up {
+  animation: slideUp 0.6s ease-out;
 }
 
-.aligncenter {
-  text-align: center;
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.alignleft {
-  float: left;
-  margin-right: 1rem;
+/* Responsive Typography */
+.text-hero {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  font-weight: 900;
 }
 
-.alignright {
-  float: right;
-  margin-left: 1rem;
+.text-section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+/* Responsive Grid */
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .card {
+    padding: 1.5rem;
+  }
+  
+  .service-card {
+    min-height: 350px;
+  }
+  
+  .btn-gradient {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 1rem;
+  }
+  
+  .service-card {
+    min-height: 300px;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .card {
+    border: 2px solid #374151;
+  }
+  
+  .btn-gradient {
+    border: 2px solid white;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .site-header,
+  .site-footer,
+  .btn-gradient,
+  .badge {
+    display: none;
+  }
+  
+  .page-bg {
+    background: white;
+  }
+  
+  .card {
+    border: 1px solid #000;
+    box-shadow: none;
+  }
+}
+
+/* Elementor Specific Overrides */
+.elementor-editor-active .site-header {
+  position: relative;
+}
+
+/* WordPress Admin Bar Compatibility */
+.admin-bar .site-header {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+  .admin-bar .site-header {
+    top: 46px;
+  }
 }
