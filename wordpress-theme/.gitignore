@@ -1,0 +1,50 @@
+# WordPress Theme .gitignore
+
+# WordPress Core Files (if included accidentally)
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+wp-content/backups/
+
+# Theme Development Files
+node_modules/
+npm-debug.log
+yarn-error.log
+.sass-cache/
+*.map
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log Files
+*.log
+
+# Temporary Files
+*.tmp
+*.temp
+
+# Backup Files
+*.bak
+*.backup
+
+# Environment Files
+.env
+.env.local
+.env.production
+
+# Package Manager Files
+package-lock.json
+yarn.lock
