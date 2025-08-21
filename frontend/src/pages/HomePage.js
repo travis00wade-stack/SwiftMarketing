@@ -50,12 +50,7 @@ const HomePage = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-indigo-600/10"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex justify-center mb-6">
-              <Badge className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-4 py-2 text-sm font-medium">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Trending 2025 Marketing Solutions
-              </Badge>
-            </div>
+
             
             <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-8 leading-tight">
               Bringing Digital
