@@ -97,6 +97,109 @@ body {
     }
 }
 
+/* Essential Utility Classes */
+.hidden { display: none !important; }
+.block { display: block !important; }
+.flex { display: flex !important; }
+.inline-flex { display: inline-flex !important; }
+.grid { display: grid !important; }
+
+/* Flexbox Utilities */
+.items-center { align-items: center !important; }
+.items-start { align-items: flex-start !important; }
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.flex-col { flex-direction: column !important; }
+.flex-row { flex-direction: row !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+
+/* Grid Utilities */
+.grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+.grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+.grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+
+@media (min-width: 1024px) {
+    .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+    .lg\\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+    .lg\\:flex-row { flex-direction: row !important; }
+    .lg\\:text-5xl { font-size: 3rem !important; line-height: 1 !important; }
+    .lg\\:text-6xl { font-size: 3.75rem !important; line-height: 1 !important; }
+    .lg\\:text-7xl { font-size: 4.5rem !important; line-height: 1 !important; }
+    .lg\\:py-32 { padding-top: 8rem !important; padding-bottom: 8rem !important; }
+}
+
+/* Spacing Utilities */
+.p-2 { padding: 0.5rem !important; }
+.p-4 { padding: 1rem !important; }
+.p-6 { padding: 1.5rem !important; }
+.px-4 { padding-left: 1rem !important; padding-right: 1rem !important; }
+.px-8 { padding-left: 2rem !important; padding-right: 2rem !important; }
+.py-4 { padding-top: 1rem !important; padding-bottom: 1rem !important; }
+.py-16 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+.py-20 { padding-top: 5rem !important; padding-bottom: 5rem !important; }
+.mb-4 { margin-bottom: 1rem !important; }
+.mb-6 { margin-bottom: 1.5rem !important; }
+.mb-8 { margin-bottom: 2rem !important; }
+.mb-12 { margin-bottom: 3rem !important; }
+.mb-16 { margin-bottom: 4rem !important; }
+
+/* Typography */
+.text-xl { font-size: 1.25rem !important; line-height: 1.75rem !important; }
+.text-2xl { font-size: 1.5rem !important; line-height: 2rem !important; }
+.text-3xl { font-size: 1.875rem !important; line-height: 2.25rem !important; }
+.text-4xl { font-size: 2.25rem !important; line-height: 2.5rem !important; }
+.text-5xl { font-size: 3rem !important; line-height: 1 !important; }
+.font-bold { font-weight: 700 !important; }
+.font-semibold { font-weight: 600 !important; }
+.font-medium { font-weight: 500 !important; }
+.text-center { text-align: center !important; }
+.leading-tight { line-height: 1.25 !important; }
+.leading-relaxed { line-height: 1.625 !important; }
+
+/* Colors */
+.text-white { color: #ffffff !important; }
+.text-gray-600 { color: #4b5563 !important; }
+.text-gray-700 { color: #374151 !important; }
+.text-gray-900 { color: #111827 !important; }
+.text-blue-600 { color: #2563eb !important; }
+.bg-white { background-color: #ffffff !important; }
+
+/* Sizing */
+.w-full { width: 100% !important; }
+.w-12 { width: 3rem !important; }
+.w-16 { width: 4rem !important; }
+.h-12 { height: 3rem !important; }
+.h-16 { height: 4rem !important; }
+.h-20 { height: 5rem !important; }
+.max-w-3xl { max-width: 48rem !important; }
+.max-w-4xl { max-width: 56rem !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+/* Borders */
+.rounded-lg { border-radius: 0.5rem !important; }
+.rounded-xl { border-radius: 0.75rem !important; }
+.border-2 { border-width: 2px !important; }
+
+/* Positioning */
+.relative { position: relative !important; }
+.absolute { position: absolute !important; }
+.z-10 { z-index: 10 !important; }
+
+/* Effects */
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important; }
+.transition-all { transition-property: all !important; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important; transition-duration: 150ms !important; }
+.duration-300 { transition-duration: 300ms !important; }
+
+/* Responsive Utilities */
+@media (min-width: 640px) {
+    .sm\\:flex-row { flex-direction: row !important; }
+}
+
+@media (max-width: 768px) {
+    .text-hero { font-size: 2.5rem !important; }
+    .text-section-title { font-size: 2rem !important; }
+}
+
 /* Container Classes */
 .container {
     width: 100%;
